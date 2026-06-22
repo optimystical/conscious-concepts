@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Space Grotesk", sans-serif;
+
+  --color-gold-50: #fbf8f0;
+  --color-gold-100: #f4ebd6;
+  --color-gold-200: #e7d3aa;
+  --color-gold-300: #d6b779;
+  --color-gold-400: #ca9d54;
+  --color-gold-500: #bc8239;
+  --color-gold-600: #a3652c;
+  --color-gold-700: #834925;
+  --color-gold-800: #6b3a22;
+  --color-gold-900: #5b311f;
+
+  --color-carbon-50: #f6f6f6;
+  --color-carbon-100: #e7e7e7;
+  --color-carbon-200: #d1d1d1;
+  --color-carbon-300: #b0b0b0;
+  --color-carbon-400: #888888;
+  --color-carbon-500: #6d6d6d;
+  --color-carbon-600: #5d5d5d;
+  --color-carbon-700: #4f4f4f;
+  --color-carbon-800: #2a2a2a;
+  --color-carbon-900: #141414;
+  --color-carbon-950: #080808;
+}
+
+/* Custom background animations & overlays */
+.vignette-overlay {
+  background: radial-gradient(circle at center, transparent 30%, rgba(8, 8, 8, 0.9) 100%);
+}
+
+.copper-glow {
+  text-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+}
+
+.subtle-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(197, 160, 89, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 160, 89, 0.03) 1px, transparent 1px);
+}
+
+/* Artistic Flair Theme specifics */
+.cinematic-clip {
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.angle-line {
+  position: absolute;
+  width: 2px;
+  height: 120%;
+  background: #C5A059;
+  transform: rotate(15deg);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Elegant artistic typography modifiers */
+.art-mono {
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* High-fidelity grain effect */
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Custom scrollbar to match dark brand */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
+}
+
+/* ── Revenue calculator: brand-styled range sliders on receipt paper ── */
+.cc-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  margin-top: 12px;
+  background: #e2d8c4;
+  border-radius: 2px;
+  outline-offset: 4px;
+  cursor: pointer;
+}
+.cc-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1c1814;
+  border: 3px solid #f7f1e6;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.cc-range::-webkit-slider-thumb:hover {
+  background: #C5A059;
+}
+.cc-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1c1814;
+  border: 3px solid #f7f1e6;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+.cc-range:focus-visible {
+  outline: 2px solid #C5A059;
+}
+
+/* Receipt torn/perforated edges */
+.cc-perf {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background-size: 18px 12px;
+  background-repeat: repeat-x;
+}
+.cc-perf-top {
+  top: -11px;
+  background-image: radial-gradient(circle at 9px 12px, transparent 7px, #f7f1e6 7px);
+}
+.cc-perf-bottom {
+  bottom: -11px;
+  background-image: radial-gradient(circle at 9px 0, transparent 7px, #f7f1e6 7px);
+}
